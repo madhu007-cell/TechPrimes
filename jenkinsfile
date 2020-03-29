@@ -15,14 +15,7 @@ pipeline {
                 withMaven(maven : 'Maven 3.6.3'){
                     sh 'mvn test'
                 }
-            }
-        }
-        stage ('Deployement Stage'){
-            steps {
-                withMaven(maven : 'Maven 3.6.3'){
-                    sh 'mvn deploy'
-                }
-            }
+            }  
         }    
     }
 }
