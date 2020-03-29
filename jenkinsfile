@@ -16,6 +16,12 @@ pipeline {
                     sh 'mvn test'
                 }
             }  
-        }    
+        }
+        stage ('Deploy Artifacts'){
+            steps{
+                deploy adapters: [tomcat8(credentialsId: 'tomcat_credentials', path: '', url: 'http://54.224.152.148:8090/')], contextPath: null, war: '**/*.war'{
+                }
+            }
+        }
     }
 }
